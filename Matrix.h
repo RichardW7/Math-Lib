@@ -133,8 +133,60 @@ class Matrix {
 
         };
 
-        void discriminant () {
+        bool isSquare () {
+            if (this->m == this->n) {
+                return true;
+            } else {
+                return false;
+            }
+        };
 
+        float determinant () {
+            if(!this->isSquare()) {
+                cout << "Not a square matrix.\n";
+                return -1;
+            }
+
+            return this->determinant(this, this->m);
+
+        };
+
+        float determinant (Matrix* matrix, int n) {
+            float d = 0, sign = 1;
+
+            if (n == 1) {
+                return matrix->matrix[0][0];
+            }
+
+            Matrix* temp = new Matrix(n, n);
+
+            for (int i = 0; i < matrix->m; i++) {
+                temp = cofactor(matrix, temp, 0, i, n);
+                d += sign * matrix->matrix[0][i] * determinant(temp, n - 1);
+                sign = -sign;
+            }
+
+            return d;
+
+        };
+
+        Matrix* cofactor (Matrix* matrix, Matrix* temp, int a, int b, int n) {
+            int i = 0, j = 0;
+
+            for (int row = 0; row < n; row++) {
+                for (int col = 0; col < n; col++) {
+                    if (row != a && col != b) {
+                        temp->matrix[i][j++] = matrix->matrix[row][col];
+
+                        if (j == n - 1) {
+                            j = 0;
+                            i++;
+                        }
+                    }
+                }
+            }
+
+            return temp;
         };
 };
 
