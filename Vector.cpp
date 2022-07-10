@@ -139,34 +139,34 @@ class Vector {
 int main () {
 
 
-    vector<float> x;
+    // vector<float> x;
 
-    x.push_back(2);
-    x.push_back(-3);
-    x.push_back(1);
+    // x.push_back(2);
+    // x.push_back(-3);
+    // x.push_back(1);
 
-    Vector* v1 = new Vector(x);
+    // Vector* v1 = new Vector(x);
 
-    vector<float> y;
+    // vector<float> y;
 
-    y.push_back(4);
-    y.push_back(-1);
-    y.push_back(5);
+    // y.push_back(4);
+    // y.push_back(-1);
+    // y.push_back(5);
 
-    Vector* v2 = new Vector(y);
+    // Vector* v2 = new Vector(y);
 
-    v1->printVector();
-    v2->printVector();
+    // v1->printVector();
+    // v2->printVector();
 
-    Vector* v3 = new Vector(3);
+    // Vector* v3 = new Vector(3);
 
-    v3 = *v1 * v2;
+    // v3 = *v1 * v2;
 
-    v3->printVector();
+    // v3->printVector();
 
 
     
-    cout << "v1 dotted w/ v2: " << *v1 % v2 << "\n";
+    // cout << "v1 dotted w/ v2: " << *v1 % v2 << "\n";
 
     // v1->cross(v2);
     // v1->printVector();
