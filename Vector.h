@@ -1,7 +1,12 @@
+#ifndef VECTOR_H
+#define VECTOR_H
+
 #include <vector>
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
+// #include <Vector.h>
+
 using namespace std;
 
 class Vector {
@@ -24,7 +29,7 @@ class Vector {
 
         //Destructor
         ~Vector () {
-            delete(this);
+            // delete(this);
         }
 
         //Add
@@ -78,16 +83,16 @@ class Vector {
         };
 
         //Dot
-        float operator % (const Vector* v) {
+        float operator % (const Vector v) {
             float dotproduct = 0;
 
-            if (this->dim != v->dim) {
+            if (this->dim != v.dim) {
                 cout << "Cannot add vectors in different spaces.\n";
                 return -1;
             } 
 
             for (int i = 0; i < this->dim; i++) {
-                dotproduct += (this->components.at(i) * v->components.at(i));
+                dotproduct += (this->components.at(i) * v.components.at(i));
             }
 
             return dotproduct;
@@ -136,45 +141,4 @@ class Vector {
         }
 };
 
-int main () {
-
-
-    // vector<float> x;
-
-    // x.push_back(2);
-    // x.push_back(-3);
-    // x.push_back(1);
-
-    // Vector* v1 = new Vector(x);
-
-    // vector<float> y;
-
-    // y.push_back(4);
-    // y.push_back(-1);
-    // y.push_back(5);
-
-    // Vector* v2 = new Vector(y);
-
-    // v1->printVector();
-    // v2->printVector();
-
-    // Vector* v3 = new Vector(3);
-
-    // v3 = *v1 * v2;
-
-    // v3->printVector();
-
-
-    
-    // cout << "v1 dotted w/ v2: " << *v1 % v2 << "\n";
-
-    // v1->cross(v2);
-    // v1->printVector();
-    // v1->scale(0.1);
-    // v1->printVector();
-    // Vector *v3 = new Vector(3);
-    // v3 = v1->unitVector();
-    // v3->printVector();
-    // cout << v.unitVector() << endl;
-
-}
+#endif
